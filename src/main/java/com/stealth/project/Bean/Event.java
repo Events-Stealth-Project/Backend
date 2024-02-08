@@ -178,4 +178,29 @@ public class Event {
     public void setCertificationsRequired(Set<Certification> certificationsRequired) {
         this.certificationsRequired = certificationsRequired;
     }
+
+    public Event(Integer id, String eventName, String eventDescription, String organizingClub, String location, String notes, String volunteerPoints, int numberOfVolunteers, Date eventDate, Time eventStartTime, Time eventEndTime, Set<Certification> certificationsRequired, Set<UserEvent> volunteers, Set<User> organizers) {
+        this.id = id;
+        this.eventName = eventName;
+        this.eventDescription = eventDescription;
+        this.organizingClub = organizingClub;
+        this.location = location;
+        this.notes = notes;
+        this.volunteerPoints = volunteerPoints;
+        this.numberOfVolunteers = numberOfVolunteers;
+        this.eventDate = eventDate;
+        this.eventStartTime = eventStartTime;
+        this.eventEndTime = eventEndTime;
+        this.certificationsRequired = certificationsRequired;
+        this.volunteers = volunteers;
+        this.organizers = organizers;
+    }
+
+    public Event(Integer id, String eventName, String eventDescription, String organizingClub, String location) {
+        this.id = id;
+        this.eventName = eventName;
+        this.eventDescription = eventDescription;
+        this.organizingClub = organizingClub;
+        this.location = location;
+    }
 }
