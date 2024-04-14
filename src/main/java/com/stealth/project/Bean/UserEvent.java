@@ -24,8 +24,7 @@ public class UserEvent {
     @Column(name = "has_attended", columnDefinition = "boolean default false")
     private boolean hasAttended;
 
-    public UserEvent(Long id, User user, Event event, boolean isAccepted, boolean hasAttended) {
-        this.id = id;
+    public UserEvent(User user, Event event, boolean isAccepted, boolean hasAttended) {
         this.user = user;
         this.event = event;
         this.isAccepted = isAccepted;
