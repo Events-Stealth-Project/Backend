@@ -8,7 +8,7 @@ public class Certification {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(name = "CertificationName")
     private String certificationName;
