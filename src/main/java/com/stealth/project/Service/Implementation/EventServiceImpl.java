@@ -6,6 +6,8 @@ import com.stealth.project.Service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EventServiceImpl implements EventService {
 
@@ -16,5 +18,10 @@ public class EventServiceImpl implements EventService {
     public boolean addEvent(Event event) {
         eventRepository.save(event);
         return true;
+    }
+
+    @Override
+    public List<Event> viewAllEvents(){
+        return eventRepository.findAll();
     }
 }
