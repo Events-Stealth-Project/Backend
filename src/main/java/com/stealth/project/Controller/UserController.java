@@ -1,7 +1,7 @@
 package com.stealth.project.Controller;
 
 import com.stealth.project.DTO.ApplyToEvent;
-import com.stealth.project.Service.EventService;
+import com.stealth.project.DTO.UpdateProfile;
 import com.stealth.project.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -19,5 +19,11 @@ public class UserController {
     @PreAuthorize("hasRole('USER')")
     public boolean applyToEvent(@RequestBody ApplyToEvent applyToEvent){
         return userService.applyToEvent(applyToEvent);
+    }
+
+    @PostMapping("/updateProfile")
+    @PreAuthorize("hasRole('USER')")
+    public boolean updateProfile(@RequestBody UpdateProfile updateProfile){
+        return userService.updateProfile(updateProfile);
     }
 }

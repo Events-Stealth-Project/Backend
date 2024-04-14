@@ -4,6 +4,7 @@ import com.stealth.project.Bean.Event;
 import com.stealth.project.Bean.User;
 import com.stealth.project.Bean.UserEvent;
 import com.stealth.project.DTO.ApplyToEvent;
+import com.stealth.project.DTO.UpdateProfile;
 import com.stealth.project.Repository.EventRepository;
 import com.stealth.project.Repository.UserEventRepository;
 import com.stealth.project.Repository.UserRepository;
@@ -47,5 +48,29 @@ public class UserServiceImpl implements UserService {
         }
 
         return true;
+    }
+
+    @Override
+    public boolean updateProfile(UpdateProfile updateProfile){
+        try{
+            User user = userRepository.findById(updateProfile.getUserId());
+
+            user.setFirstname(updateProfile.getFirstName());
+            user.setGivenName(updateProfile.getGivenName());
+            user.setLastName(updateProfile.getLastName());
+            user.setPhoneNo(updateProfile.getPhoneNumber());
+            user.setDietaryPreferences(updateProfile.getDietaryPreferences());
+            user.setOrganizer(updateProfile.isOrganizer());
+            user.setCertifications(updateProfile.getCertifications());
+            user.setUniversityName(updateProfile.getUniversityName());
+
+            userRepository.save(user);
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        return true;
+
     }
 }
